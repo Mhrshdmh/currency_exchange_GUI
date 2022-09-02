@@ -1,0 +1,132 @@
+from tkinter import * 
+# App Base
+t= Tk()
+t.geometry("500x400")
+t.title("Currency")
+c=IntVar()
+s=StringVar()
+d=StringVar()
+Cu = ['IRR' , 'USD' , 'EUR' , 'AUD' , 'CAD']
+
+# Title
+w=Label(t,text='Welcome To Invert Currency App',font='Arial')
+w.pack()
+
+Entry(t,bg='sky blue',textvariable=c).place(x=110 , y=70)
+Label(t,text='Choose your Source :').place(x=10 , y=100)
+Label(t,text='Choose your Destination :').place(x=200 , y=100)
+
+# This function compair currencies and calculate their difference
+def res():
+    Label(t,text='Result :',bg='indian red',fg='white').place(x=150 , y=270)
+    
+    if s.get() == d.get():
+        Label(t,text=c.get(),bg='sky blue').place(x=155 , y=300)
+    ########################################################    
+    elif (s.get()=='IRR') and (d.get()=='USD'):
+        r = c.get()/42325
+        Label(t,text=r,bg='sky blue').place(x=150 , y=300)
+    elif (s.get()=='IRR') and (d.get()=='EUR'):
+        r = c.get()/45150
+        Label(t,text=r,bg='sky blue').place(x=150 , y=300)
+    elif (s.get()=='IRR') and (d.get()=='AUD'):
+        r = c.get()/29957
+        Label(t,text=r,bg='sky blue').place(x=150 , y=300)
+    elif (s.get()=='IRR') and (d.get()=='CAD'):
+        r = c.get()/33068
+        Label(t,text=r,bg='sky blue').place(x=150 , y=300) 
+    ########################################################
+    elif (s.get()=='USD') and (d.get()=='IRR'):
+        r = c.get()*42325
+        Label(t,text=r,bg='sky blue').place(x=150 , y=300)
+    elif (s.get()=='USD') and (d.get()=='EUR'):
+        r = c.get()*0.9376
+        Label(t,text=r,bg='sky blue').place(x=150 , y=300)
+    elif (s.get()=='USD') and (d.get()=='AUD'):
+        r = c.get()*1.41
+        Label(t,text=r,bg='sky blue').place(x=150 , y=300) 
+    elif (s.get()=='USD') and (d.get()=='CAD'):
+        r = c.get()*1.28
+        Label(t,text=r,bg='sky blue').place(x=150 , y=300)    
+    ########################################################   
+    elif (s.get()=='EUR') and (d.get()=='IRR'):
+       r = c.get()*45152
+       Label(t,text=r,bg='sky blue').place(x=150 , y=300) 
+    elif (s.get()=='EUR') and (d.get()=='USD'):
+       r = c.get()*1.07
+       Label(t,text=r,bg='sky blue').place(x=150 , y=300)  
+    elif (s.get()=='EUR') and (d.get()=='AUD'):
+       r = c.get()*1.51
+       Label(t,text=r,bg='sky blue').place(x=150 , y=300)  
+    elif (s.get()=='EUR') and (d.get()=='CAD'):
+       r = c.get()*1.37
+       Label(t,text=r,bg='sky blue').place(x=150 , y=300)   
+    ######################################################## 
+    elif (s.get()=='AUD') and (d.get()=='IRR'):
+       r = c.get()*29957
+       Label(t,text=r,bg='sky blue').place(x=150 , y=300)   
+    elif (s.get()=='AUD') and (d.get()=='USD'):
+      r = c.get()*0.71
+      Label(t,text=r,bg='sky blue').place(x=150 , y=300)
+    elif (s.get()=='AUD') and (d.get()=='EUR'):
+       r = c.get()*0.66
+       Label(t,text=r,bg='sky blue').place(x=150 , y=300)  
+    elif (s.get()=='AUD') and (d.get()=='CAD'):
+       r = c.get()*0.91
+       Label(t,text=r,bg='sky blue').place(x=150 , y=300)  
+    ########################################################
+    elif (s.get()=='CAD') and (d.get()=='IRR'):
+       r = c.get()*33068
+       Label(t,text=r,bg='sky blue').place(x=150 , y=300)    
+    elif (s.get()=='CAD') and (d.get()=='USD'):
+       r = c.get()*0.78
+       Label(t,text=r,bg='sky blue').place(x=150 , y=300)  
+    elif (s.get()=='CAD') and (d.get()=='EUR'):
+       r = c.get()*0.73
+       Label(t,text=r,bg='sky blue').place(x=150 , y=300)  
+    elif (s.get()=='CAD') and (d.get()=='AUD'):
+       r = c.get()*1.1
+       Label(t,text=r,bg='sky blue').place(x=150 , y=300)  
+      
+      
+      
+      
+# This function check valid & invalid source Entries      
+def check_des():
+    if d.get() not in Cu:
+        l = Label(t,text='Not invalid !!' , fg='red').place(x=320 , y=190)
+    else:
+        res()
+        
+        
+# This function showed after valid source     
+def des():
+
+    Label(t,text='IRR').place(x=200 , y=150)
+    Label(t,text='USD').place(x=200 , y=170)
+    Label(t,text='EUR').place(x=200 , y=190)
+    Label(t,text='AUD').place(x=200 , y=210)
+    Label(t,text='CAD').place(x=200 , y=230)
+    Entry(t,bg='sky blue',width=7,textvariable=d).place(x=270 , y=190)
+    Button(t,text='ok',bg='green',fg='white',command=check_des).place(x=280 , y=220)
+# This function check valid & invalid destination Entries    
+def check_so():
+    
+    if s.get() not in Cu:
+        Label(t,text=' invalid !!' , fg='red').place(x=120 , y=190)
+    else:
+        des()
+# Exit function
+def ex():
+    t.destroy()
+    
+# Source entry  
+Label(t,text='IRR').place(x=30 , y=150)
+Label(t,text='USD').place(x=30 , y=170)
+Label(t,text='EUR').place(x=30 , y=190)
+Label(t,text='AUD').place(x=30 , y=210)
+Label(t,text='CAD').place(x=30 , y=230)
+Entry(t,bg='sky blue',width=7,textvariable=s).place(x=70 , y=190)
+Button(t,text='ok',bg='green',fg='white',command=check_so).place(x=80 , y=220)
+Button(t,text='Exit',bg='red',fg='white',command=ex).place(x=30 , y=300)
+t.mainloop()
